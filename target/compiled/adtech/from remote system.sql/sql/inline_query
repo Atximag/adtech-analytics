@@ -1,1 +1,0 @@
-select advertiser_id, status, dbt_valid_from, dbt_valid_to from snapshots.snap_advertisers where advertiser_id = 1 order by dbt_valid_from
