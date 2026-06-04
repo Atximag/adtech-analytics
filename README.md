@@ -87,9 +87,8 @@ dbt snapshot --profiles-dir .              # a new version row is recorded
 
 ## Lineage
 
-<!-- TODO: run `dbt docs serve`, open the lineage graph, take a screenshot,
-     save it as docs/lineage.png and uncomment the line below -->
-<!-- ![Lineage graph](docs/lineage.png) -->
+
+[Lineage graph](docs/lineage.png)
 
 ```
 sources (raw)  →  staging  →  marts
