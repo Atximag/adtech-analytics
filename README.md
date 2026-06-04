@@ -88,7 +88,7 @@ dbt snapshot --profiles-dir .              # a new version row is recorded
 ## Lineage
 
 
-[Lineage graph](docs/lineage.png)
+![Lineage graph](docs/lineage.png)
 
 ```
 sources (raw)  →  staging  →  marts
