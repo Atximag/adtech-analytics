@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_advertisers
+    description: "Cleaned advertiser dimension. One row per advertiser."
+    columns:
+      - name: advertiser_id
+        description: "Primary key for an advertiser."
+        tests: [unique, not_null]
+      - name: status
+        description: "Advertiser account status."
+        tests:
+          - accepted_values:
+              values: ['active', 'paused']
+
+  - name: stg_campaigns
+    description: "Cleaned campaign dimension. One row per campaign."
+    columns:
+      - name: campaign_id
+        description: "Primary key for a campaign."
+        tests: [unique, not_null]
+      - name: advertiser_id
+        description: "FK to stg_advertisers."
+        tests:
+          - relationships:
+              to: ref('stg_advertisers')
+              field: advertiser_id
+
+  - name: stg_ad_events
+    description: "Cleaned ad event stream: impressions, clicks, conversions."
+    columns:
+      - name: event_id
+        description: "Unique id of a single ad event."
+        tests: [unique, not_null]
+      - name: event_type
+        description: "Type of the event."
+        tests:
+          - accepted_values:
+              values: ['impression', 'click', 'conversion']
+      - name: campaign_id
+        description: "FK to stg_campaigns."
+        tests:
+          - relationships:
+              to: ref('stg_campaigns')
+              field: campaign_id

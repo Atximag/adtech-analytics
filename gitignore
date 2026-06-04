@@ -1,0 +1,21 @@
+# Python virtual environment
+.venv/
+__pycache__/
+*.pyc
+
+# dbt build artifacts
+target/
+dbt_packages/
+logs/
+
+# Local DuckDB database (regenerable)
+*.duckdb
+*.duckdb.wal
+
+# Generated data (reproducible via generate_data.py)
+data/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
